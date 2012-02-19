@@ -1,6 +1,18 @@
+CC=g++
+DEBUG=-g
+CFLAGS=-c $(DEBUG) `pkg-config gtkmm-3.0 --cflags --libs`
+LFLAGS=$(DEBUG) `pkg-config gtkmm-3.0 --cflags --libs`
+OBJECTS=screen.o gui.o example.o
+TARGET=example
 
-all:
-	g++ -c -o screen.o screen.cpp `pkg-config gtkmm-3.0 --cflags --libs`
-	g++ -c -o window.o window.cpp `pkg-config gtkmm-3.0 --cflags --libs`
-	g++ -c -o main.o GUI.cpp `pkg-config gtkmm-3.0 --cflags --libs`
-	g++ -o sound_shayt screen.o window.o main.o `pkg-config gtkmm-3.0 --cflags --libs`
+all: $(TARGET)
+
+$(TARGET) : $(OBJECTS) $(TARGET).o
+	$(CC) $(OBJECTS) -o $(TARGET) $(LFLAGS)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) $<
+
+clean:
+	rm -f *.o
+	rm -f $(TARGET)

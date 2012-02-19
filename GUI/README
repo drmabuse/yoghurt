@@ -1,3 +1,5 @@
-This commit is shit.
-There is no readable comments and readme contain no explanations(I'll do them soon, within a couple of days, as well as some refactoring).
-But it is better than nothing.
+GUI version 0.1 is finaly here!
+
+GUI interface is fully described in gui.h file.
+
+You can find working example in "example.cpp" file.
