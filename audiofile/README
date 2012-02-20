@@ -1,0 +1,13 @@
+!!!AUDIOFILE IS HERE TO FULFILL ITS DESTINY!!!
+
+AudioFile class provides you a universal interface for opening,  editing and saving audio files of 
+ANY FORMAT (well, at present only of WAVE files but if you want some other shit, it is open source 
+babe -- go write it yourself!).
+To get an example on how to write your own program read 'test.cpp'. In short, well you just create
+an instance of AudioFile class, apply readAudioFile() to it and do whatever you want with it (even
+fuck it). After you've done you should use writeAudioFile() to save the audio in raw WAVE format.
+
+Enjoy your mindfuck with this shit!
+
+Sincerely yours,
+drmabuse.
