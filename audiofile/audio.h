@@ -13,7 +13,7 @@ protected:
 public:
     Audio(const char *_data, int _size, int _sampleRate, int _numberOfChannels = 1, int _sampleSize = 1);
     Audio();
-    ~Audio();
+    virtual ~Audio();
     int get(int n, int channel);   
     void set(int value, int n, int channel);
     void setSize(int _size);
