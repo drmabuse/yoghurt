@@ -3,10 +3,10 @@
 
 int main()
 {
-    Audio file;
-    readAudioFile("bitch.wav", file);
+    AudioFile file;
+    file.readAudioFile("bitch.wav");
     for(int i = 0; i < file.getSize()/file.getSampleSize(); i++)
 	file.set(-file.get(i, 0), i, 0);
-    writeAudioFile("out.wav", file);
+    file.writeAudioFile("out.wav");
  }
  
