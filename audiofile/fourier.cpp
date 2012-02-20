@@ -1,0 +1,46 @@
+/* fast fourier transform */
+#include <iostream>
+#include <complex>
+#include <math.h>
+
+const double PI = 3.14159265; //
+
+void FFT(const std::vector<std::complex<double> > &source, std::vector<std::complex<double> > &dest)
+{
+  int length = source.size();
+  if(length == 1)
+    return dest;
+  std::complex<double> omega_n(cos(2*PI/length), sin(2*PI/length)); // e^(2*PI*i/n)
+  std::complex<double> omega(1., 0.);
+  std::vector<std::complex<double> > a_0;
+  for(int i = 0; i <= n-2; i+=2)
+    a_0.push_back(source[i]);
+  std::vector<std::complex<double> > a_1;
+  for(int i = 1; i <= n-1; i+=2)
+    a_1.push_back(source[i]);
+  std::vector<std::complex<double> > y_0, y_1;
+  FFT(a_0, y_0);
+  FFT(a_1, y_1);
+  dest.resize(length);
+  for(int i = 0; i <= n/2 - 1; i++)
+  {
+      dest[i]     = y_0[i] + omega * y_1[i];
+      dest[i+n/2] = y_0[i] - omega * y_1[i];
+      omega = omega * omega_n;
+  }
+}
+
+int main()
+{
+    std::vector<std::complex<double > source;
+    source.resize(4);
+    source[0] = std::compex<double>(0.,0.);
+    source[1] = std::complex<double>(1.,0.);
+    source[2] = std::complex<double>(2.,0.);
+    source[3] = std::complex<double>(3.,0.);
+    std::vector<std::complex<double >  dest;
+    FFT(source, dest);
+    for(int i = 0; i < 4; i++)
+	std::cout << dest[i] << std::endl;
+    return 0;
+}
