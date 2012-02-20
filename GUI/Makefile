@@ -14,7 +14,7 @@ $(TARGET) : $(OBJECTS) $(TARGET).o
 	$(CC) $(CFLAGS) $<
 
 clean:
-	touch $(OBJS)
-	rm -f $(OBJS)
+	touch $(OBJECTS)
+	rm -f $(OBJECTS)
 	touch $(TARGET)
 	rm -f $(TARGET)
